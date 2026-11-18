@@ -28,7 +28,7 @@ namespace video_rental
         public int ReleaseYear
         {
             get { return releaseYear; }
-            set { ReleaseYear  = value; }
+            set { releaseYear  = value; }
         }
 
         public string Platform
