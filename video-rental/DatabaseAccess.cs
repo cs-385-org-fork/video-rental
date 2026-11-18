@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.Data.Sqlite;
@@ -51,10 +51,14 @@ namespace video_rental {
                     connection.Open();
 
                     var command = connection.CreateCommand();
-                    command.CommandText = (" CREATE TABLE IF NOT EXISTS Movies( ID INTEGER PRIMARY KEY AUTOINCREMENT, Title TEXT NOT NULL, Year INTEGER NOT NULL, Rating TEXT NOT NULL, Studio TEXT, Genre TEXT ); ");
+                    command.CommandText = (" CREATE TABLE IF NOT EXISTS Movies( ID INTEGER PRIMARY KEY AUTOINCREMENT, Title TEXT NOT NULL, Length DOUBLE, Year INTEGER, MPARating CHAR, Format TEXT, AvailableCopies INTEGER NOT NULL, TotalCopies INTEGER NOT NULL ); ");
                     command.ExecuteNonQuery();
-                    // table for TV Shows
-                    // table for Video Games
+
+                    command.CommandText = (" CREATE TABLE IF NOT EXISTS BoxSets( ID INTEGER PRIMARY KEY AUTOINCREMENT, Title TEXT NOT NULL, Seasons TEXT, Year INTEGER, MPARating CHAR, Format TEXT, DiscsIncluded INTEGER NOT NULL, AvailableCopies INTEGER NOT NULL, TotalCopies INTEGER NOT NULL ); ");
+                    command.ExecuteNonQuery();
+
+                    command.CommandText = (" CREATE TABLE IF NOT EXISTS VideoGames( ID INTEGER PRIMARY KEY AUTOINCREMENT, Title TEXT NOT NULL, Year Integer, ESRBRating CHAR, Platform TEXT, MultiplayerInfo TEXT, AvailableCopies INTEGER NOT NULL, TotalCopies INTEGER NOT NULL ); ");
+                    command.ExecuteNonQuery();
                 }
             }
             catch (Exception ex) {
