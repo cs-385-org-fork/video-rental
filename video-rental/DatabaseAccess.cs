@@ -39,7 +39,7 @@ Date checked out
 
 namespace video_rental {
     internal class DatabaseAccess {
-        private const string ConnectionString = "Data Source=StoreCatalog.db";
+        private const string ConnectionString = "Data Source=StoreDB.db";
 
 
         public DatabaseAccess() {
