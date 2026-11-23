@@ -7,30 +7,70 @@ namespace video_rental
 {
     internal class BoxSet
     {
-        /* TV Series
+        public string title;
+        public char rating;
+        public int releaseYear;
+        public string format;
+        public string seasons; //String so you can input as 1, 1-4, 2-3, etc. No math is done with it anyways
+        public int episodesCount;
+        public int episodeLength;
+        public int discsIncluded;
+        public int availableCopies;
+        public int totalCopies;
 
+        public string Title
+        {
+            get { return title; }
+            set { title = value; }
+        }
 
-     Seasons(string)
+        public char Rating
+        {
+            get { return rating; }
+            set { rating = value; }
+        }
 
-     Title(string)
+        public int ReleaseYear
+        {
+            get { return releaseYear; }
+            set { releaseYear = value; }
+        }
 
-     Season(int)
+        public string Format
+        {
+            get { return format; }
+            set { format = value; }
+        }
+        public string Seasons
+        {
+            get { return seasons; }
+            set { seasons = value; }
+        }
+        public int EpisodesCount
+        {
+            get { return episodesCount; }
+            set { episodesCount = value; }
+        }
+        public int EpisodeLength
+        {
+            get { return episodeLength; }
+            set { episodeLength = value; }
+        }
+        public int DiscsIncluded
+        {
+            get { return discsIncluded; }
+            set { discsIncluded = value; }
+        }
+        public int AvailableCopies
+        {
+            get { return availableCopies; }
+            set { availableCopies = value; }
+        }
 
-     Episodes(int)
-
-     Episode Length(double)
-
-     Year(int)
-
-     MPA Rating(Char, E, T, M)
-
-     Format(DVD, Blu-Ray) (String)
-     Discs Included(Int)
-
-     Available Copies(Int)
-
-     Total Copies(int)
-        */
-        public int Season { get; set; }
+        public int TotalCopies
+        {
+            get { return totalCopies; }
+            set { totalCopies = value; }
+        }
     }
 }
