@@ -9,7 +9,6 @@
         public int inventoryItemID;
         public DateTime dateCheckedOut;
         public DateTime dateDue;
-        public DateTime dateReturned;
         public int TransactionID
         {
             get { return transactionID; }
@@ -34,11 +33,6 @@
         {
             get { return dateDue; }
             set { dateDue = value; }
-        }
-        public DateTime DateReturned
-        {
-            get { return dateReturned; }
-            set { dateReturned = value; }
         }
     }
 }
