@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace video_rental {
-    internal class Movie {
+    internal class Movie : InventoryItem
+    {
         public string title;
         public char rating;
         public int releaseYear;

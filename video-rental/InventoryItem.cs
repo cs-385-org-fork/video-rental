@@ -53,15 +53,15 @@ namespace video_rental {
 			TotalCopies
 
 		 */
-        private abstract int id = -1;
-		private abstract string title = "";
+        private int id = -1;
+		private string title = "";
         
-		public abstract int ID { get; set; }
-		public abstract string Title { get; set; }
-		public abstract int Year { get; set; }
-		public abstract int AvailableCopies { get; set; }
-		public abstract int TotalCopies { get; set; }
-		public abstract MediaType Type { get; }
+		public int ID { get; set; }
+		public string Title { get; set; }
+		public int Year { get; set; }
+		public int AvailableCopies { get; set; }
+		public int TotalCopies { get; set; }
+		public MediaType Type { get; }
 
 
     }

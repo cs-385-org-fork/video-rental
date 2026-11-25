@@ -4,7 +4,7 @@ using System.Text;
 
 namespace video_rental
 {
-    internal class VideoGame
+    internal class VideoGame : InventoryItem
     {
         public string title;
         public char rating;

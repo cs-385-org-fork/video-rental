@@ -5,7 +5,7 @@ using System.Text;
 
 namespace video_rental
 {
-    internal class BoxSet
+    internal class BoxSet : InventoryItem
     {
         public string title;
         public char rating;
