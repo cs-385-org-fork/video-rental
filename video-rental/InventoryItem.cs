@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace video_rental {
+    enum MediaType
+    {
+        Movie,
+        BoxSet,
+        VideoGame,
+    }
     abstract class InventoryItem {
 		/*
 		 Options for movies, tv shows, and video games
@@ -47,8 +53,7 @@ namespace video_rental {
 			TotalCopies
 
 		 */
-
-		private abstract int id = -1;
+        private abstract int id = -1;
 		private abstract string title = "";
         
 		public abstract int ID { get; set; }
@@ -56,7 +61,7 @@ namespace video_rental {
 		public abstract int Year { get; set; }
 		public abstract int AvailableCopies { get; set; }
 		public abstract int TotalCopies { get; set; }
-
+		public abstract MediaType Type { get; }
 
 
     }

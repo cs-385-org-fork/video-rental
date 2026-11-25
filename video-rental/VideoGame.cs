@@ -13,6 +13,7 @@ namespace video_rental
         public string multiplayerInfo;
         public int availableCopies;
         public int totalCopies;
+       
 
         public string Title { 
             get { return title; }
@@ -55,5 +56,9 @@ namespace video_rental
             set {  totalCopies = value; }
         }
 
+        public MediaType Type
+        {
+            get { return MediaType.VideoGame; }
+        }
     }
 }

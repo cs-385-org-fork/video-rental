@@ -46,5 +46,11 @@ namespace video_rental {
             get { return totalCopies; }
             set { totalCopies = value; }
         }
+
+        public MediaType Type
+        {
+            get { return MediaType.Movie; }
+        }
+
     }
 }
