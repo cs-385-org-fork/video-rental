@@ -127,6 +127,56 @@ namespace video_rental {
                 MessageBox.Show("Failed to add movie to database.\t" + ex.Message);
             }
         }
+        public Movie GetMovie(int id) { // get movie from its ID on the Movies table
+            Movie mov = new Movie();
+
+            try {
+                using (var connection = new SqliteConnection(ConnectionString)) {
+                    connection.Open();
+                    var command = connection.CreateCommand();
+                    command.CommandText = (" SELECT * FROM Movies WHERE ID = " + id + "; ");
+                    using (var reader = command.ExecuteReader()) {
+                        while (reader.Read()) {
+                            mov.ID = reader.GetInt32(0);
+                            mov.Title = reader.GetString(1);
+                            mov.Length = reader.GetDouble(2);
+                            mov.ReleaseYear = reader.GetInt32(3);
+                            mov.Rating = reader.GetChar(4);
+                            mov.Format = reader.GetString(5);
+                            mov.AvailableCopies = reader.GetInt32(6);
+                            mov.TotalCopies = reader.GetInt32(7);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Failed to retrieve movie from database.\t" + ex.Message);
+            }
+
+            return mov;
+        }
+        public Movie GetMovieByItem(int itemID) { // get movie from its Inventory ID
+            // get Movies ID from Inventory item
+            int movieID = -1;
+            try {
+                using (var connection = new SqliteConnection(ConnectionString)) {
+                    connection.Open();
+                    var command = connection.CreateCommand();
+                    command.CommandText = (" SELECT * FROM Inventory WHERE ID = " + itemID + "; ");
+                    using (var reader = command.ExecuteReader()) {
+                        while (reader.Read()) {
+                            movieID = reader.GetInt32(2);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Failed to retrieve movie from database.\t" + ex.Message);
+            }
+
+            // call GetMovie using movieID
+            return GetMovie(movieID);
+        }
 
         public void AddBoxSet(BoxSet box) {
             try {
@@ -184,6 +234,57 @@ namespace video_rental {
                 MessageBox.Show("Failed to add box set to database.\t" + ex.Message);
             }
         }
+        public BoxSet GetBoxSet(int id) { // get box set from its ID on the BoxSets table
+            BoxSet box = new BoxSet();
+
+            try {
+                using (var connection = new SqliteConnection(ConnectionString)) {
+                    connection.Open();
+                    var command = connection.CreateCommand();
+                    command.CommandText = (" SELECT * FROM BoxSets WHERE ID = " + id + "; ");
+                    using (var reader = command.ExecuteReader()) {
+                        while (reader.Read()) {
+                            box.ID = reader.GetInt32(0);
+                            box.Title = reader.GetString(1);
+                            box.Seasons = reader.GetString(2);
+                            box.ReleaseYear = reader.GetInt32(3);
+                            box.Rating = reader.GetChar(4);
+                            box.Format = reader.GetString(5);
+                            box.DiscsIncluded = reader.GetInt32(6);
+                            box.AvailableCopies = reader.GetInt32(7);
+                            box.TotalCopies = reader.GetInt32(8);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Failed to retrieve box set from database.\t" + ex.Message);
+            }
+
+            return box;
+        }
+        public BoxSet GetBoxSetByItem(int itemID) { // get box set from its Inventory ID
+            // get BoxSets ID from Inventory item
+            int boxsetID = -1;
+            try {
+                using (var connection = new SqliteConnection(ConnectionString)) {
+                    connection.Open();
+                    var command = connection.CreateCommand();
+                    command.CommandText = (" SELECT * FROM Inventory WHERE ID = " + itemID + "; ");
+                    using (var reader = command.ExecuteReader()) {
+                        while (reader.Read()) {
+                            boxsetID = reader.GetInt32(2);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Failed to retrieve box set from database.\t" + ex.Message);
+            }
+
+            // call GetBoxSet using boxsetID
+            return GetBoxSet(boxsetID);
+        }
 
         public void AddVideoGame(VideoGame game) {
             try {
@@ -239,6 +340,56 @@ namespace video_rental {
             catch (Exception ex) {
                 MessageBox.Show("Failed to add video game to database.\t" + ex.Message);
             }
+        }
+        public VideoGame GetVideoGame(int id) { // get video game from its ID on the VideoGames table
+            VideoGame game = new VideoGame();
+
+            try {
+                using (var connection = new SqliteConnection(ConnectionString)) {
+                    connection.Open();
+                    var command = connection.CreateCommand();
+                    command.CommandText = (" SELECT * FROM VideoGames WHERE ID = " + id + "; ");
+                    using (var reader = command.ExecuteReader()) {
+                        while (reader.Read()) {
+                            game.ID = reader.GetInt32(0);
+                            game.Title = reader.GetString(1);
+                            game.ReleaseYear = reader.GetInt32(2);
+                            game.Rating = reader.GetChar(3);
+                            game.Platform = reader.GetString(4);
+                            game.MultiplayerInfo = reader.GetString(5);
+                            game.AvailableCopies = reader.GetInt32(6);
+                            game.TotalCopies = reader.GetInt32(7);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Failed to retrieve video game from database.\t" + ex.Message);
+            }
+
+            return game;
+        }
+        public VideoGame GetVideoGameByItem(int itemID) { // get video game from its Inventory ID
+            // get VideoGames ID from Inventory item
+            int videogameID = -1;
+            try {
+                using (var connection = new SqliteConnection(ConnectionString)) {
+                    connection.Open();
+                    var command = connection.CreateCommand();
+                    command.CommandText = (" SELECT * FROM Inventory WHERE ID = " + itemID + "; ");
+                    using (var reader = command.ExecuteReader()) {
+                        while (reader.Read()) {
+                            videogameID = reader.GetInt32(2);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Failed to retrieve video game from database.\t" + ex.Message);
+            }
+
+            // call GetVideoGame using videogameID
+            return GetVideoGame(videogameID);
         }
 
     }
