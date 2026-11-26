@@ -8,6 +8,7 @@ namespace video_rental {
         public string title;
         public char rating;
         public int releaseYear;
+        public double length;
         public string format;
         public int availableCopies;
         public int totalCopies;
@@ -28,6 +29,11 @@ namespace video_rental {
         {
             get { return releaseYear; }
             set { releaseYear = value; }
+        }
+
+        public double Length {
+            get { return length; }
+            set { length = value; }
         }
 
         public string Format

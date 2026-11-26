@@ -55,6 +55,7 @@ namespace video_rental {
 		 */
         private int id = -1;
 		private string title = "";
+		private int mediaID = -1;
         
 		public int ID { get; set; }
 		public string Title { get; set; }
@@ -62,6 +63,7 @@ namespace video_rental {
 		public int AvailableCopies { get; set; }
 		public int TotalCopies { get; set; }
 		public MediaType Type { get; }
+		public int MediaID { get; set; } // ID for the item in the Movies/BoxSets/VideoGames table
 
 
     }
